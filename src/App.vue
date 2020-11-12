@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import GlobalHeader from "@/components/layouts/GlobalHeader.vue";
 import GlobalAside from "@/components/layouts/GlobalAside.vue";
 

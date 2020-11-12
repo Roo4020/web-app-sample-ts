@@ -14,6 +14,7 @@
           v-show="selectedTab === item.id"
           :data="formData[item.id - 1]"
           :tabData="item"
+          :selectedTab="selectedTab"
           @change-value="changeValue"
           @sign-up="signUp"
           @sign-in="signIn"
@@ -27,7 +28,7 @@
 import TabComponent from "@/components/molecules/TabComponent.vue";
 import LoginForm from "@/components/organisms/LoginForm.vue";
 
-import firebase from 'firebase';
+import firebase from "firebase";
 
 export default {
   name: "Top",
@@ -81,7 +82,11 @@ export default {
       ],
     };
   },
-  created() {},
+  computed: {
+    selectedTab() {
+      return this.$store.state.common.selectedTab;
+    },
+  },
   methods: {
     transHome() {
       this.$router.replace("/home");
@@ -90,7 +95,8 @@ export default {
       this.formData[formNumber - 1][key - 1].value = value;
     },
     selectTab(id) {
-      this.selectedTab = id;
+      this.$store.dispatch("common/testAction", id);
+      // this.$store.commit("common/setSelectedTab", id);
     },
     signUp() {
       firebase
@@ -100,7 +106,7 @@ export default {
           this.formData[1][1].value
         )
         .then((user) => {
-          alert('アカウント登録が完了しました。', user);
+          console.log("signUp成功", user);
         })
         .catch((error) => {
           alert(error.message);
@@ -115,7 +121,7 @@ export default {
         )
         .then(
           (user) => {
-            alert('サインイン成功です。', user);
+            console.log("signIn成功", user);
           },
           (error) => {
             alert(error.message);
