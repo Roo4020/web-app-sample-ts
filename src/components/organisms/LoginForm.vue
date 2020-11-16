@@ -47,7 +47,7 @@ export default {
       this.$emit("change-value", formNumber, key, value);
     },
     authEvent() {
-      if (this.selectedTab === 1) {
+      if (this.selectedTab === 2) {
         this.$emit("sign-up");
       } else {
         this.$emit("sign-in");

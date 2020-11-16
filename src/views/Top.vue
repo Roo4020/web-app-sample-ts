@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import TabComponent from "@/components/molecules/TabComponent.vue";
 import LoginForm from "@/components/organisms/LoginForm.vue";
 
@@ -38,7 +38,6 @@ export default {
   },
   data() {
     return {
-      selectedTab: 1,
       tabList: [
         {
           id: 1,
@@ -83,50 +82,46 @@ export default {
     };
   },
   computed: {
-    selectedTab() {
-      return this.$store.state.common.selectedTab;
+    selectedTab(): number {
+      return (this as any).$store.state.common.selectedTab;
     },
   },
   methods: {
     transHome() {
-      this.$router.replace("/home");
+      (this as any).$router.replace("/home");
     },
-    changeValue(formNumber, key, value) {
-      this.formData[formNumber - 1][key - 1].value = value;
+    changeValue(formNumber: number, key: number, value: string): void {
+      (this as any).formData[formNumber - 1][key - 1].value = value;
     },
-    selectTab(id) {
-      this.$store.dispatch("common/testAction", id);
-      // this.$store.commit("common/setSelectedTab", id);
+    selectTab(id: number): void {
+      (this as any).$store.commit("common/setSelectedTab", id);
     },
-    signUp() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(
-          this.formData[1][0].value,
-          this.formData[1][1].value
-        )
-        .then((user) => {
-          console.log("signUp成功", user);
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
+    signUp(): void {
+      (this as any).$store.dispatch("auth/signUp", {
+        id: (this as any).formData[1][0].value,
+        password: (this as any).formData[1][1].value,
+      });
+      // firebase.auth().createUserWithEmailAndPassword((this as any).formData[1][0].value, (this as any).formData[1][1].value)
+      //   .then(user => {
+      //     alert('アカウント登録が完了しました。サインイン画面に飛びます');
+      //   })
+      //   .catch(error => {
+      //     alert(error.message);
+      //   })
     },
-    signIn() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(
-          this.formData[0][0].value,
-          this.formData[0][1].value
-        )
-        .then(
-          (user) => {
-            console.log("signIn成功", user);
-          },
-          (error) => {
-            alert(error.message);
-          }
-        );
+    signIn(): void {
+      (this as any).$store.dispatch("auth/signIn", {
+        id: (this as any).formData[0][0].value,
+        password: (this as any).formData[0][1].value,
+      });
+      // firebase.auth().signInWithEmailAndPassword((this as any).formData[0][0].value, (this as any).formData[0][1].value).then(
+      //   user => {
+      //     alert('サインイン成功です。');
+      //   },
+      //   error => {
+      //     alert(error.message);
+      //   },
+      // );
     },
   },
 };

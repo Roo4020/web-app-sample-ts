@@ -1,13 +1,9 @@
 export interface IauthState {
-  videoId: string;
-  referenceVideoId: string;
-  lightMode: boolean;
-  fullScreen: boolean;
+  id: string;
+  password: string;
 }
 
 export class AuthState implements IauthState {
-  videoId = "";
-  referenceVideoId = "";
-  lightMode = false;
-  fullScreen = false;
+  id = "";
+  password = "";
 }

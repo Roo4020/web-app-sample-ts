@@ -3,10 +3,10 @@ import { IauthState } from "./models";
 import { RootState } from "../RootState";
 
 export const getters: GetterTree<IauthState, RootState> = {
-  lightMode: state => {
-    return state.lightMode;
+  id: state => {
+    return state.id;
   },
-  fullScreen: state => {
-    return state.fullScreen;
-  }
+  password: state => {
+    return state.password;
+  },
 };
