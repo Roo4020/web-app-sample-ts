@@ -3,10 +3,10 @@ import { IauthState } from "./models";
 import { RootState } from "../RootState";
 
 export const getters: GetterTree<IauthState, RootState> = {
-  id: state => {
-    return state.id;
+  user: state => {
+    return state.user;
   },
-  password: state => {
-    return state.password;
+  state: state => {
+    return state.state;
   },
 };

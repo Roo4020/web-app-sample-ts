@@ -25,12 +25,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue"; 
+
 import TabComponent from "@/components/molecules/TabComponent.vue";
 import LoginForm from "@/components/organisms/LoginForm.vue";
 
-import firebase from "firebase";
-
-export default {
+export default defineComponent({
   name: "Top",
   components: {
     TabComponent,
@@ -101,30 +101,15 @@ export default {
         id: (this as any).formData[1][0].value,
         password: (this as any).formData[1][1].value,
       });
-      // firebase.auth().createUserWithEmailAndPassword((this as any).formData[1][0].value, (this as any).formData[1][1].value)
-      //   .then(user => {
-      //     alert('アカウント登録が完了しました。サインイン画面に飛びます');
-      //   })
-      //   .catch(error => {
-      //     alert(error.message);
-      //   })
     },
     signIn(): void {
       (this as any).$store.dispatch("auth/signIn", {
         id: (this as any).formData[0][0].value,
         password: (this as any).formData[0][1].value,
       });
-      // firebase.auth().signInWithEmailAndPassword((this as any).formData[0][0].value, (this as any).formData[0][1].value).then(
-      //   user => {
-      //     alert('サインイン成功です。');
-      //   },
-      //   error => {
-      //     alert(error.message);
-      //   },
-      // );
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scopped>

@@ -1,9 +1,9 @@
 export interface IauthState {
-  id: string;
-  password: string;
+  user: object;
+  state: Boolean;
 }
 
 export class AuthState implements IauthState {
-  id = "";
-  password = "";
+  user = {};
+  state = false;
 }

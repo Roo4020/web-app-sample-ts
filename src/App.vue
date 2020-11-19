@@ -21,6 +21,9 @@ export default {
     GlobalHeader,
     GlobalAside,
   },
+  created() {
+    (this as any).$store.dispatch("auth/onAuthChanged");
+  },
 };
 </script>
 
