@@ -5,32 +5,31 @@ import { RootState } from "../RootState";
 import firebase from "firebase";
 
 export const actions: ActionTree<IauthState, RootState> = {
-  signUp({ commit }, payload) {
+  signUp({ }, payload) {
     firebase.auth().createUserWithEmailAndPassword(payload.id, payload.password)
-      .then(user => {
-        alert('アカウント登録が完了しました。');
-        commit("setUserData", user?.user);
-        commit("setSignInState", true);
-      })
+      .then()
       .catch(error => {
         alert(error.message);
       });
   },
-  signIn({ commit }, payload) {
+  signIn({ }, payload) {
     console.log(payload);
     firebase.auth().signInWithEmailAndPassword(payload.id, payload.password)
-      .then(user => {
-        alert('サインイン成功しました。');
-        commit("setUserData", user?.user);
-        commit("setSignInState", true);
-      })
+      .then()
       .catch(error => {
         alert(error.message);
       });
   },
-  onAuthChanged() {
+  signOut() {
+    firebase.auth().signOut().catch(error => {
+      alert(error.message);
+    })
+  },
+  onAuthChanged({ commit }) {
     firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
+      const userData: any = user ? user : {};
+      commit("setUserData", userData);
+        commit("setSignInState", userData.uid ? true : false);
     });
   },
   error({ commit }, payload) {

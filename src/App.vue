@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <div class="app-wrapper" v-if="$route.path !== '/'">
-      <GlobalHeader />
+      <GlobalHeader linkLabel="Log out" @sign-out="signOut" />
       <div class="app-content">
         <GlobalAside />
         <router-view />
@@ -25,6 +25,25 @@ export default defineComponent({
   },
   created() {
     (this as any).$store.dispatch("auth/onAuthChanged");
+  },
+  computed: {
+    authState(): boolean {
+      return (this as any).$store.state.auth.state;
+    },
+  },
+  watch: {
+    authState(value: boolean) {
+      if (value) {
+        (this as any).$router.replace("/home");
+      } else {
+        (this as any).$router.replace("/");
+      }
+    },
+  },
+  methods: {
+    signOut() {
+      (this as any).$store.dispatch("auth/signOut");
+    },
   },
 });
 </script>

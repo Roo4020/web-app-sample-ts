@@ -4,7 +4,7 @@
       <HeaderLogo />
     </div>
     <div>
-      <AccountLink />
+      <AccountLink :label="linkLabel" @sign-out="signOut" />
     </div>
   </div>
 </template>
@@ -21,6 +21,14 @@ export default defineComponent({
   components: {
       HeaderLogo,
       AccountLink,
+  },
+  props: {
+    linkLabel: String,
+  },
+  methods: {
+    signOut() {
+      this.$emit("sign-out");
+    },
   },
 });
 </script>

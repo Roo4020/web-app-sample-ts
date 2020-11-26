@@ -1,7 +1,7 @@
 <template>
   <div class="top">
     <div class="top-wrapper">
-      <div class="top-title" @click="transHome">Web App Sample</div>
+      <div class="top-title">Web App Sample</div>
       <div class="tab-wrapper">
         <TabComponent
           :list="tabList"
@@ -87,9 +87,6 @@ export default defineComponent({
     },
   },
   methods: {
-    transHome() {
-      (this as any).$router.replace("/home");
-    },
     changeValue(formNumber: number, key: number, value: string): void {
       (this as any).formData[formNumber - 1][key - 1].value = value;
     },

@@ -1,8 +1,6 @@
 import { MutationTree } from "vuex";
 import { AuthState, IauthState } from "./models";
 
-import firebase from "firebase";
-
 export const mutations: MutationTree<IauthState> = {
   // 初期化
   init(state: IauthState) {

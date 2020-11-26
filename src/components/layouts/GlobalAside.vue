@@ -17,12 +17,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script>
+// import { defineComponent } from "vue";
 
 import { ASIDE_MENU_LIST } from "@/mixins/asideMenuList.js";
 
-export default defineComponent({
+export default {
   name: "GlobalAside",
   data() {
     return {
@@ -31,7 +31,7 @@ export default defineComponent({
     };
   },
   computed: {
-    setClassOpen(): string {
+    setClassOpen() {
       return this.open ? "open" : "";
     },
   },
@@ -40,7 +40,7 @@ export default defineComponent({
       this.open = !this.open;
     },
   },
-});
+};
 </script>
 
 <style lang="scss" scopped>

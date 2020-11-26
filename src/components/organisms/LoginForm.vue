@@ -49,10 +49,10 @@ export default defineComponent({
       this.$emit("change-value", formNumber, key, value);
     },
     authEvent() {
-      if (this.selectedTab === 2) {
-        this.$emit("sign-up");
-      } else {
+      if (this.selectedTab === 1) {
         this.$emit("sign-in");
+      } else {
+        this.$emit("sign-up");
       }
     },
   },

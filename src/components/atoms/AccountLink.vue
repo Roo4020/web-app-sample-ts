@@ -1,5 +1,5 @@
 <template>
-  <div class="top-link" @click="transTop">Log out</div>
+  <div class="top-link" @click="clickEvent">{{ label }}</div>
 </template>
 
 <script lang="ts">
@@ -7,9 +7,12 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: 'AccountLink',
+  props: {
+    label: String,
+  },
   methods: {
-      transTop() {
-        this.$router.push("/");
+      clickEvent() {
+        this.$emit("sign-out");
       },
   },
 });
