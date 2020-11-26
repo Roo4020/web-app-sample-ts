@@ -2,15 +2,17 @@
   <div class="top-link" @click="transTop">Log out</div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: 'AccountLink',
   methods: {
       transTop() {
         this.$router.push("/");
       },
   },
-};
+});
 </script>
 
 <style lang="scss" scopped>

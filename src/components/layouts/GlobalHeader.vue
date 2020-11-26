@@ -9,18 +9,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import HeaderLogo from "@/components/atoms/HeaderLogo.vue";
 import AccountLink from "@/components/atoms/AccountLink.vue";
 
 
-export default {
+export default defineComponent({
   name: 'GlobalHeader',
   components: {
       HeaderLogo,
       AccountLink,
   },
-};
+});
 </script>
 
 <style lang="scss" scopped>

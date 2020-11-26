@@ -2,8 +2,10 @@
   <button @click="clickEvent">{{ label }}</button>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "CommonButton",
   props: {
     label: String,
@@ -13,7 +15,7 @@ export default {
       this.$emit("click-event");
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

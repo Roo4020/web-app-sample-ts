@@ -12,10 +12,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue"; 
+
 import GlobalHeader from "@/components/layouts/GlobalHeader.vue";
 import GlobalAside from "@/components/layouts/GlobalAside.vue";
 
-export default {
+export default defineComponent({
   name: "App",
   components: {
     GlobalHeader,
@@ -24,7 +26,7 @@ export default {
   created() {
     (this as any).$store.dispatch("auth/onAuthChanged");
   },
-};
+});
 </script>
 
 <style lang="scss">

@@ -2,8 +2,10 @@
   <input type="text" v-model="innerValue" />
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "TextField",
   props: {
     value: String,
@@ -12,15 +14,15 @@ export default {
   },
   computed: {
     innerValue: {
-      get() {
+      get(): string | undefined {
         return this.value;
       },
-      set(value) {
+      set(value: string) {
         this.$emit("change-value", this.formNumber, this.id, value);
       },
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

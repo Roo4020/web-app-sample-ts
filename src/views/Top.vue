@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"; 
+import { defineComponent } from "vue";
 
 import TabComponent from "@/components/molecules/TabComponent.vue";
 import LoginForm from "@/components/organisms/LoginForm.vue";

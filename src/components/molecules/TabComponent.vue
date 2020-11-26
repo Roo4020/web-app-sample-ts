@@ -11,8 +11,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "TabComponent",
   props: {
     list: Array,
@@ -21,17 +23,17 @@ export default {
   computed: {
     setClassSelected() {
       const selected = this.selected;
-      return function (id) {
+      return function (id: number) {
         return selected === id ? "selected" : "";
       };
     },
   },
   methods: {
-    clickEvent(id) {
+    clickEvent(id: number) {
       this.$emit("click-event", id);
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

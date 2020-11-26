@@ -26,12 +26,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import CommonButton from "@/components/atoms/CommonButton.vue";
 
 import FormComponent from "@/components/molecules/FormComponent.vue";
 
-export default {
+export default defineComponent({
   name: "LoginForm",
   components: {
     CommonButton,
@@ -43,7 +45,7 @@ export default {
     selectedTab: Number,
   },
   methods: {
-    changeValue(formNumber, key, value) {
+    changeValue(formNumber: number, key: number, value: string) {
       this.$emit("change-value", formNumber, key, value);
     },
     authEvent() {
@@ -54,7 +56,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scopped>

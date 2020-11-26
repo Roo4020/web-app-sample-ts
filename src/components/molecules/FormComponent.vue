@@ -15,11 +15,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import TextField from "@/components/atoms/TextField.vue";
 import PasswordField from "@/components/atoms/PasswordField.vue";
 
-export default {
+export default defineComponent({
   name: "FormComponent",
   components: {
     TextField,
@@ -30,11 +32,11 @@ export default {
     formNumber: Number,
   },
   methods: {
-    changeValue(formNumber, key, value) {
+    changeValue(formNumber: number, key: number, value: string) {
       this.$emit("change-value", formNumber, key, value);
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
