@@ -1,4 +1,10 @@
-export const ASIDE_MENU_LIST = [
+interface IasideMenuList {
+    label: string
+    path: string
+    icon: string
+}
+
+export const ASIDE_MENU_LIST: IasideMenuList[] = [
     {
         label: "ホーム",
         path: "/home",

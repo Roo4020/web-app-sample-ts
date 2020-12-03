@@ -25,6 +25,7 @@ export default defineComponent({
   },
   created() {
     (this as any).$store.dispatch("auth/onAuthChanged");
+    (this as any).$store.dispatch("canvas/getCanvas");
   },
   computed: {
     authState(): boolean {
