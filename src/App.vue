@@ -8,6 +8,7 @@
       </div>
     </div>
     <router-view v-else />
+    <Modal v-show="$store.state.modal.state" />
   </div>
 </template>
 
@@ -17,15 +18,19 @@ import { defineComponent } from "vue";
 import GlobalHeader from "@/components/layouts/GlobalHeader.vue";
 import GlobalAside from "@/components/layouts/GlobalAside.vue";
 
+import Modal from "@/components/organisms/Modal/index.vue";
+
 export default defineComponent({
   name: "App",
   components: {
     GlobalHeader,
     GlobalAside,
+    Modal,
   },
   created() {
     (this as any).$store.dispatch("auth/onAuthChanged");
     (this as any).$store.dispatch("canvas/getCanvas");
+    (this as any).$store.dispatch("modal/closeModal");
   },
   computed: {
     authState(): boolean {
