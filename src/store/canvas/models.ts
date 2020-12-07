@@ -1,5 +1,5 @@
 export interface IcanvasState {
-    canvas: object;
+    canvas: Object;
 }
 
 export class CanvasState implements IcanvasState {

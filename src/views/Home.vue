@@ -2,7 +2,7 @@
   <div class="page">
     <ContentHeader>
       <template v-slot:right>
-        <CommonButton label="新規登録" />
+        <CommonButton label="新規登録" @click="showCanvasForm" />
       </template>
     </ContentHeader>
     <TableComponent :header="header"></TableComponent>
@@ -30,6 +30,11 @@ export default defineComponent({
     return {
       header: HOME_LIST,
     };
+  },
+  methods: {
+    showCanvasForm(): void {
+      (this as any).$store.dispatch("modal/setModal", "addCanvas");
+    },
   },
 });
 </script>

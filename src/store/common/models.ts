@@ -1,5 +1,5 @@
 export interface IcommonState {
-  selectedTab: number
+  selectedTab: Number;
 }
 
 export class CommonState implements IcommonState {

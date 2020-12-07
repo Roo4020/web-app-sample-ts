@@ -1,5 +1,5 @@
 export interface IauthState {
-  user: object;
+  user: Object;
   state: Boolean;
 }
 

@@ -20,7 +20,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .content-header {
     width: 100%;
-    height: 85px;
+    height: 72px;
     display: flex;
     justify-content: space-between;
     align-items: center;

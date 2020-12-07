@@ -8,7 +8,7 @@ export const actions: ActionTree<IcanvasState, RootState> = {
   getCanvas(): void {
     firebase.firestore().collection('canvas').get().then((doc: any) => {
       doc.forEach((element: any) => {
-        console.log(element.data());
+        // console.log(element.data());
       });
     }).catch((error: any) => {
       console.log(error);
