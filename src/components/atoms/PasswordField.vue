@@ -18,7 +18,7 @@ export default defineComponent({
         return this.value;
       },
       set(value: string) {
-        this.$emit("change-value", this.formNumber, this.id, value);
+        this.$emit("change-value", String(value), this.id, this.formNumber);
       },
     },
   },
@@ -28,7 +28,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 input[type="password"] {
   font-size: 20px;
-  width: 280px;
+  width: 90%;
   height: 32px;
   border: none;
   border-bottom: 1px solid black;

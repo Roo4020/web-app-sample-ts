@@ -1,7 +1,7 @@
 <template>
   <div class="form-component">
-    <div>{{ form.label }}</div>
-    <div>
+    <div class="form-component-label">{{ form.label }}</div>
+    <div class="form-component-input">
       <keep-alive>
         <component
           :is="form.formType"
@@ -20,20 +20,22 @@ import { defineComponent } from "vue";
 
 import TextField from "@/components/atoms/TextField.vue";
 import PasswordField from "@/components/atoms/PasswordField.vue";
+import NumberField from "@/components/atoms/NumberField.vue";
 
 export default defineComponent({
   name: "FormComponent",
   components: {
     TextField,
     PasswordField,
+    NumberField,
   },
   props: {
     form: Object,
     formNumber: Number,
   },
   methods: {
-    changeValue(formNumber: number, key: number, value: string) {
-      this.$emit("change-value", formNumber, key, value);
+    changeValue(value: string, key: number, formNumber: number) {
+      this.$emit("change-value", value, key, formNumber);
     },
   },
 });
@@ -41,10 +43,15 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .form-component {
+  width: 100%;
   font-size: 20px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   margin: 16px 0px;
+  &-label {
+    padding-left: 16px;
+  }
+  &-input {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

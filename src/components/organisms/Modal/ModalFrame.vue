@@ -45,8 +45,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .modal-frame {
   z-index: 1000;
-  width: 320px;
-  height: 320px;
+  width: 400px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -69,6 +68,9 @@ export default defineComponent({
   }
   .modal-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
   .modal-footer {
     height: 32px;
@@ -83,10 +85,10 @@ export default defineComponent({
 }
 
 .size-M {
-    height: 320px;
+    height: 480px;
 }
 
 .size-L {
-    height: 480px;
+    height: 640px;
 }
 </style>

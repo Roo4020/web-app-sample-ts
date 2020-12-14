@@ -1,32 +1,31 @@
 <template>
-  <input type="text" v-model="innerValue" />
+  <input type="number" v-model="innerValue" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "TextField",
+  name: "NumberField",
   props: {
-    value: String,
+    value: Number,
     id: Number,
-    formNumber: Number,
   },
   computed: {
     innerValue: {
-      get(): string | undefined {
+      get(): number | undefined {
         return this.value;
       },
-      set(value: string) {
-        this.$emit("change-value", value, this.id, this.formNumber);
+      set(value: number): void {
+        this.$emit("change-value", Number(value), this.id);
       },
     },
   },
 });
 </script>
 
-<style lang="scss" scoped>
-input[type="text"] {
+<style scoped>
+input[type="number"] {
   font-size: 20px;
   width: 90%;
   height: 32px;

@@ -45,8 +45,8 @@ export default defineComponent({
     selectedTab: Number,
   },
   methods: {
-    changeValue(formNumber: number, key: number, value: string) {
-      this.$emit("change-value", formNumber, key, value);
+    changeValue(value: string, key: number, formNumber: number) {
+      this.$emit("change-value", value, key, formNumber);
     },
     authEvent() {
       if (this.selectedTab === 1) {

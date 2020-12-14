@@ -87,7 +87,7 @@ export default defineComponent({
     },
   },
   methods: {
-    changeValue(formNumber: number, key: number, value: string): void {
+    changeValue(value: string, key: number, formNumber: number): void {
       (this as any).formData[formNumber - 1][key - 1].value = value;
     },
     selectTab(id: number): void {
