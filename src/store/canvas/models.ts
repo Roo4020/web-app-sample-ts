@@ -38,7 +38,7 @@ export class CanvasState implements IcanvasState {
           id: 4,
           value: "",
           label: "背景色",
-          keyName: "backgrondColor",
+          keyName: "backgroundColor",
           formType: "TextField",
         },
       ];

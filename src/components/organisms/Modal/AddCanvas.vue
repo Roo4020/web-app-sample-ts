@@ -43,8 +43,10 @@ export default defineComponent({
     changeFormValue(value: string | number, id: number): void {
       (this as any).$store.commit("canvas/changeCanvasValue", {key: id, value: value});
     },
-    addCanvas() {
-
+    async addCanvas() {
+      (this as any).$store.dispatch("canvas/addCanvas");
+      (this as any).$store.dispatch("modal/closeModal");
+      await (this as any).$store.dispatch("canvas/getCanvas");
     },
   },
 });

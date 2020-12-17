@@ -7,21 +7,27 @@ interface Ihometable {
 
 export const HOME_LIST: Ihometable[] = [
     {
-        label: "名前",
-        key: "name",
-        width: 40,
+        label: "テキスト",
+        key: "text",
+        width: 25,
+        visible: true,
+    },
+    {
+        label: "フォントサイズ",
+        key: "fontsize",
+        width: 25,
+        visible: true,
+    },
+    {
+        label: "色",
+        key: "color",
+        width: 25,
         visible: true,
     },
     {
         label: "背景色",
         key: "backgroundColor",
-        width: 40,
-        visible: true,
-    },
-    {
-        label: "文字色",
-        key: "color",
-        width: 20,
+        width: 25,
         visible: true,
     },
 ]
