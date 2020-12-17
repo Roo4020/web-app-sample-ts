@@ -5,7 +5,7 @@
         <CommonButton label="新規登録" @click="showCanvasForm" />
       </template>
     </ContentHeader>
-    <TableComponent :header="header"></TableComponent>
+    <TableComponent :header="header" :data="canvasList" ></TableComponent>
   </div>
 </template>
 
@@ -30,6 +30,11 @@ export default defineComponent({
     return {
       header: HOME_LIST,
     };
+  },
+  computed: {
+    canvasList(): Array<Object> {
+      return (this as any).$store.state.canvas.canvasList;
+    },
   },
   methods: {
     showCanvasForm(): void {
