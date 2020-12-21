@@ -29,7 +29,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
-  :hover {
+  &:hover {
     background: silver;
   }
   &-item {
