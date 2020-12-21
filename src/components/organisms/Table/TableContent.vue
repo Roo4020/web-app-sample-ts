@@ -4,6 +4,7 @@
     :key="index"
     :dataItem="dataItem"
     :row="row"
+    @click="clickRow(dataItem)"
   />
 </template>
 
@@ -20,6 +21,11 @@ export default defineComponent({
   props: {
     data: Array,
     row: Array,
+  },
+  methods: {
+    clickRow(data: object): void {
+      this.$emit("click-row", data);
+    },
   },
 });
 </script>

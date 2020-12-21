@@ -30,4 +30,4 @@ export const HOME_LIST: Ihometable[] = [
         width: 25,
         visible: true,
     },
-]
+];

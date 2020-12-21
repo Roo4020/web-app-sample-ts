@@ -29,11 +29,14 @@ export default defineComponent({
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
+  :hover {
+    background: silver;
+  }
   &-item {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0px 4px;
+    padding: 0px 8px;
   }
 }
 </style>

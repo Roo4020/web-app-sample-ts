@@ -8,11 +8,13 @@
 import { defineComponent } from "vue";
 
 import AddCanvas from "@/components/organisms/Modal/AddCanvas.vue";
+import EditCanvas from "@/components/organisms/Modal/EditCanvas.vue";
 
 export default defineComponent({
   name: "Modal",
   components: {
     AddCanvas,
+    EditCanvas,
   },
   methods: {
     closeModal() {

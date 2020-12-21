@@ -10,7 +10,11 @@ export const actions: ActionTree<IcanvasState, RootState> = {
     const canvasList: Array<Object> = [];
     await firebase.firestore().collection('canvas').get().then((snapShot: any) => {
       snapShot.forEach((doc: any) => {
-        canvasList.push(doc.data());
+        const canvasData = {
+          ...doc.data(),
+          docId: doc.id,
+        };
+        canvasList.push(canvasData);
       });
     }).catch((error: any) => {
       console.log(error);
@@ -31,6 +35,14 @@ export const actions: ActionTree<IcanvasState, RootState> = {
     });
 
     await commit("initCanvas");
+  },
+  setCanvasValue({ state, commit }, payload) {
+    for (let i in state.canvas) {
+      commit("changeCanvasValue", {
+        key: state.canvas[i].id,
+        value: payload[state.canvas[i].keyName],
+      });
+    }
   },
   error({ commit }, payload) {
     commit("setErrorMessage", payload);

@@ -5,7 +5,7 @@
         <CommonButton label="新規登録" @click="showCanvasForm" />
       </template>
     </ContentHeader>
-    <TableComponent :header="header" :data="canvasList" ></TableComponent>
+    <TableComponent :header="header" :data="canvasList"  @click-row="editCanvas" />
   </div>
 </template>
 
@@ -37,8 +37,13 @@ export default defineComponent({
     },
   },
   methods: {
-    showCanvasForm(): void {
-      (this as any).$store.dispatch("modal/setModal", "addCanvas");
+    async showCanvasForm() {
+      (this as any).$store.commit("canvas/initCanvas");
+      (this as any).$store.dispatch("modal/setModal", "AddCanvas");
+    },
+    async editCanvas(data: object) {
+      await (this as any).$store.dispatch("canvas/setCanvasValue", data);
+      (this as any).$store.dispatch("modal/setModal", "EditCanvas");
     },
   },
 });

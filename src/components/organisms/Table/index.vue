@@ -1,7 +1,7 @@
 <template>
   <div class="table">
     <TableHeader :data="header" />
-    <TableContent :data="data" :row="header" />
+    <TableContent :data="data" :row="header" @click-row="clickRow" />
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default defineComponent({
   props: {
     header: Array,
     data: Array,
+  },
+  methods: {
+    clickRow(data: object): void {
+      this.$emit("click-row", data);
+    },
   },
 });
 </script>
