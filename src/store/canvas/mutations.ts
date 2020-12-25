@@ -15,4 +15,10 @@ export const mutations: MutationTree<IcanvasState> = {
   setCanvasList(state: IcanvasState, payload) {
     state.canvasList = payload;
   },
+  setCurrentDocId(state: IcanvasState, payload: {docId: string}) {
+    state.currentDocId = payload.docId;
+  },
+  initCurrentDocId(state: IcanvasState) {
+    state.currentDocId = "";
+  },
 };

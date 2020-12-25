@@ -15,7 +15,7 @@
       <div></div>
     </template>
     <template v-slot:footerRight>
-      <CommonButton label="登録" @click="editCanvas" />
+      <CommonButton label="更新" @click="updateCanvas" />
     </template>
   </ModalFrame>
 </template>
@@ -46,10 +46,10 @@ export default defineComponent({
         value: value,
       });
     },
-    async editCanvas() {
-      (this as any).$store.dispatch("canvas/editCanvas");
+    async updateCanvas() {
+      await (this as any).$store.dispatch("canvas/updateCanvas");
       await (this as any).$store.dispatch("canvas/getCanvas");
-      (this as any).$store.dispatch("modal/closeModal");
+      await (this as any).$store.dispatch("modal/closeModal");
     },
   },
 });

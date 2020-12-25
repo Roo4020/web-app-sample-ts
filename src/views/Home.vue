@@ -5,7 +5,7 @@
         <CommonButton label="新規登録" @click="showCanvasForm" />
       </template>
     </ContentHeader>
-    <TableComponent :header="header" :data="canvasList"  @click-row="editCanvas" />
+    <TableComponent :header="header" :data="canvasList"  @click-row="startEditCanvas" />
   </div>
 </template>
 
@@ -31,6 +31,9 @@ export default defineComponent({
       header: HOME_LIST,
     };
   },
+  created() {
+    (this as any).$store.dispatch("canvas/getCanvas");
+  },
   computed: {
     canvasList(): Array<Object> {
       return (this as any).$store.state.canvas.canvasList;
@@ -41,8 +44,9 @@ export default defineComponent({
       (this as any).$store.commit("canvas/initCanvas");
       (this as any).$store.dispatch("modal/setModal", "AddCanvas");
     },
-    async editCanvas(data: object) {
+    async startEditCanvas(data: object) {
       await (this as any).$store.dispatch("canvas/setCanvasValue", data);
+      (this as any).$store.commit("canvas/setCurrentDocId", data);
       (this as any).$store.dispatch("modal/setModal", "EditCanvas");
     },
   },

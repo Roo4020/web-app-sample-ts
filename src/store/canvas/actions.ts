@@ -34,7 +34,7 @@ export const actions: ActionTree<IcanvasState, RootState> = {
       console.error(error);
     });
 
-    await commit("initCanvas");
+    commit("initCanvas");
   },
   setCanvasValue({ state, commit }, payload) {
     for (let i in state.canvas) {
@@ -43,6 +43,21 @@ export const actions: ActionTree<IcanvasState, RootState> = {
         value: payload[state.canvas[i].keyName],
       });
     }
+  },
+  async updateCanvas({ state, commit }) {
+    const data: any = {};
+    state.canvas.forEach((item: any) => {
+      data[item.keyName] = item.value;
+    })
+
+    await firebase.firestore().collection('canvas').doc(state.currentDocId).update(
+      data
+    ).then(() => {
+      commit("initCurrentDocId");
+      commit("initCanvas");
+    }).catch(error => {
+      console.error(error);
+    });
   },
   error({ commit }, payload) {
     commit("setErrorMessage", payload);

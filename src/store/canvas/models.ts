@@ -1,6 +1,7 @@
 export interface IcanvasState {
     canvas: Array<IcanvasForm>;
     canvasList: Array<Object>;
+    currentDocId: string;
 }
 
 export interface IcanvasForm {
@@ -24,7 +25,7 @@ export class CanvasState implements IcanvasState {
           id: 2,
           value: NaN,
           label: "フォントサイズ",
-          keyName: "fontsize",
+          keyName: "fontSize",
           formType: "NumberField",
         },
         {
@@ -43,4 +44,5 @@ export class CanvasState implements IcanvasState {
         },
       ];
     canvasList = [];
+    currentDocId = "";
 }

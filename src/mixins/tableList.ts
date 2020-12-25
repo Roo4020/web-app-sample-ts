@@ -14,7 +14,7 @@ export const HOME_LIST: Ihometable[] = [
     },
     {
         label: "フォントサイズ",
-        key: "fontsize",
+        key: "fontSize",
         width: 25,
         visible: true,
     },

@@ -29,7 +29,6 @@ export default defineComponent({
   },
   created() {
     (this as any).$store.dispatch("auth/onAuthChanged");
-    (this as any).$store.dispatch("canvas/getCanvas");
     (this as any).$store.dispatch("modal/closeModal");
   },
   computed: {
