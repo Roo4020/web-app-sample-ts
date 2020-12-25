@@ -65,6 +65,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: auto;
   &-footer {
     width: 100%;
     height: 40px;

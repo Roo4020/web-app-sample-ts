@@ -50,8 +50,10 @@ export default defineComponent({
     padding-left: 16px;
   }
   &-input {
+    width: 90%;
     display: flex;
     justify-content: center;
+    margin: auto;
   }
 }
 </style>
