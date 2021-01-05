@@ -30,7 +30,7 @@ export const actions: ActionTree<IauthState, RootState> = {
     firebase.auth().onAuthStateChanged(user => {
       const userData: any = user ? user : {};
       commit("setUserData", userData);
-        commit("setSignInState", userData.uid ? true : false);
+      commit("setSignInState", userData.uid ? true : false);
     });
   },
   error({ commit }, payload) {
